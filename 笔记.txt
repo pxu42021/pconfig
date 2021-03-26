@@ -1,0 +1,25 @@
+方法存储：class_method 主键：classname、methodname
+选择框：select_catalog 主键：selname
+模板list：awe_do_catalog 主键：dono
+	awe_do_library 主键：colidex、dono
+
+客户概况:下列表都是与customer. info内连接查询数据
+ent_ info公司信息表(基本信息、注册信息、经营信息、账户信息其他信息)customer_ cert客户证件信息表
+customer_ address客户联系地址列表
+customer_ tel客户联系电话信息列表
+
+客户高管信息: customer_ relative中RelationShip属性代表担任高管,
+在code_ library中code= RelationShip查询有01高管信息、 02投资、03家庭关系、04关联集团、06家庭关系(法人代表)、051法人代表家族成员列表: customer_ relative 中Relativeld和relationship查询客户的家族成员
+股东信息: customer_ relative通过RelationShip like '52%' and length(RelationShip)> 2条件查询
+对外股权投资信息列表: customer_ relative通过RelationShip like '02%' and length(RelationShip)> 2条件查询
+上下游企业关联列表: customer_ relative通过RelationShip like '99%' and length(RelationShip)>2条件查询
+股票发行信息: ENT_ IPO
+债券发行信息列表: ENT_ BONDISSUE
+客户涉诉信息列表: customer_ meno中O.EventType = 'LC;
+客户大事记: customer_ meno中O.EventType != 'LC;
+
+客户资质与认证信息:
+ENT_ REALTYAUTH内房地产资质情况、
+ENT_ ENTRANCEAUTH进出口贸易情况
+ENT_ AUTH certtype=02特许经营行业情况、
+certtype=01相关认证信息
